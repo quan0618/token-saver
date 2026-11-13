@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "token-saver"
+version = "0.1.0"
+description = "A seamless LLM API middleware to maximize context cache hits and reduce token costs."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+dependencies = [
+    "openai>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/quan0618/token-saver"
