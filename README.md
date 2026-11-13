@@ -1,11 +1,13 @@
-```markdown
-# 🛡️ Token-Saver
-[![PyPI version](https://img.shields.io/badge/pypi-v0.1.0-blue.svg)](https://pypi.org/project/token-saver/)
+# 🛡️ LLM Token-Saver
+
+[![PyPI version](https://img.shields.io/badge/pypi-v0.1.0-blue.svg)](https://pypi.org/project/llm-token-saver/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-**Token-Saver** 是一个极致轻量、无侵入的 LLM API 中间件。只需一行代码，就能自动优化你的 Prompt 结构，大幅提升上下文缓存（Context Cache）命中率，并自动修剪冗长的对话历史，帮你直接砍掉 50%+ 的 API 账单！
+**LLM Token-Saver** 是一个极致轻量、无侵入的 LLM API 中间件。只需一行代码，就能自动优化你的 Prompt 结构，大幅提升上下文缓存（Context Cache）命中率，并自动修剪冗长的对话历史，帮你直接砍掉 50%+ 的 API 账单！
+
 ## ✨ 核心特性
+
 - **⚡ 零侵入接入**：完全兼容 OpenAI 官方 SDK 格式，无需重写业务逻辑。
 - **🎯 前缀稳定器 (Prefix Stabilizer)**：自动提取 System Prompt 中的动态变量（如时间戳、随机 ID）到末尾，确保请求前缀字节级一致，强制触发缓存命中。
 - **✂️ 上下文瘦身 (Context Pruner)**：自动检测并截断超长对话历史，防止输入 Token 无限膨胀。
@@ -14,7 +16,7 @@
 ## 📦 安装
 
 ```bash
-pip install token-saver
+pip install llm-token-saver
 ```
 
 ## 🚀 极简用法
@@ -57,9 +59,9 @@ client = TokenSaver(client=raw_client, max_history=5)
 
 ---
 
-### 2. 添加 `pyproject.toml`（安装配置文件）
+### 2. 更新后的 `pyproject.toml`（直接覆盖）
 
-在你的本地仓库根目录，新建一个文件叫 `pyproject.toml`，把下面的代码贴进去。这是目前 Python 打包的标准格式：
+重点修改了：`name` 字段。如果你想把主页链接也加进去，记得把里面的“你的GitHub用户名”换成你自己的。
 
 ```toml
 [build-system]
@@ -67,7 +69,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "token-saver"
+name = "llm-token-saver"
 version = "0.1.0"
 description = "A seamless LLM API middleware to maximize context cache hits and reduce token costs."
 readme = "README.md"
@@ -77,4 +79,6 @@ dependencies = [
     "openai>=1.0.0",
 ]
 
+[project.urls]
+Homepage = "https://github.com/quan0618/token-saver"
 ```
